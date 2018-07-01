@@ -1,5 +1,5 @@
 import psycopg2
-with open(r"c:\temp\postgrespwd.txt") as f:
+with open(r"c:\pwds\postgrespwd.txt") as f:
     pwd = f.readline()
 conn = psycopg2.connect("dbname=postgres user=njn@njnpostgres password={} host=njnpostgres.postgres.database.azure.com".format(pwd))
 cur = conn.cursor()

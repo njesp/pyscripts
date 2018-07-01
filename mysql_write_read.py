@@ -1,5 +1,5 @@
 import mysql.connector
-with open(r"c:\temp\mysqlpwd.txt") as f:
+with open(r"c:\pwds\mysqlpwd.txt") as f:
     pwd = f.readline()
 conn = mysql.connector.connect(user='njnmysqladm@njnmysqlsrver', password=pwd, host='njnmysqlsrver.mysql.database.azure.com')
 #create table if not exists t2 (a integer, b integer)                               

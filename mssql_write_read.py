@@ -2,7 +2,7 @@
 # Installer pyodbc (Microsoft preferred SQL Server Driver for Python): pip install pyodbc
 # Alternativt pip install c:\temp\pyodbc-4.0.23-cp36-cp36m-win_amd64.whl
 import pyodbc
-with open(r"c:\temp\sqlserverpwd.txt") as f:
+with open(r"c:\pwds\sqlserverpwd.txt") as f:
     passwd = f.readline()
 conn = pyodbc.connect(driver='{ODBC Driver 17 for SQL Server}', server='njndb.database.windows.net', database='Test', uid = 'njesp', pwd = passwd)
 cur = conn.cursor()
