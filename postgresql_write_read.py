@@ -1,9 +1,10 @@
 import psycopg2
-with open(r"c:\pwds\postgrespwd.txt") as f:
+with open(r"c:/pwds/postgrespwd.txt") as f:
     pwd = f.readline()
-conn = psycopg2.connect("dbname=postgres user=njn@njnpostgres password={} host=njnpostgres.postgres.database.azure.com".format(pwd))
+conn = psycopg2.connect(
+    "dbname=postgres user=njn@njnpostgres password={} host=njnpostgres.postgres.database.azure.com".format(pwd))
 cur = conn.cursor()
-#create table if not exists t2 (a integer, b integer)
+# create table if not exists t2 (a integer, b integer)
 for i in range(10):
     for j in range(100):
         cur.execute(r"insert into t2 (a,b) values (%(a)s, %(b)s)",
@@ -12,7 +13,8 @@ cur.close()
 conn.commit()
 conn.close()
 #
-conn = psycopg2.connect("dbname=postgres user=njn@njnpostgres password={} host=njnpostgres.postgres.database.azure.com".format(pwd))
+conn = psycopg2.connect(
+    "dbname=postgres user=njn@njnpostgres password={} host=njnpostgres.postgres.database.azure.com".format(pwd))
 cur = conn.cursor()
 cur.arraysize = 100
 cur.execute('select a, b from t2')
