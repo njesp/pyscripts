@@ -25,7 +25,7 @@ def iterdata(cursor, arraysize=1000):
 
 
 cur = conn.cursor()
-cur.execute('select a, b from t2 limit all')
+cur.execute('select txt from public.aisdata order by sys_id')
 
 for d in iterdata(cur):
     print(d)
