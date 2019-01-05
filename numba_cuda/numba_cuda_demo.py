@@ -7,7 +7,7 @@ from numba import cuda, float32
 
 # Controls threads per block and shared memory usage.
 # The computation will be done on blocks of TPBxTPB elements.
-TPB = 64
+TPB = 96
 
 
 @cuda.jit
