@@ -9,20 +9,33 @@ from Crypto.Hash import SHA256
 
 # pip install pycryptodome
 
-
 class FSEKryptoDingenot(object):
 
     def __init__(self):
+        """
+        Simple constructor. Bs is blocksize used for padding. 
+        AES-256-CBC requires padding to a multipla of blocksize. 
+        """
         self.bs = 32
         self.key = None
         self.iv = None
 
-    def genkey(self, keystr):
-        self.key = SHA256.new(data=keystr.encode()).digest()
+    def genkey(self, keyphrasestr):
+        """
+        Generate 256 bit key from (preferabley) long passphrase
+        Return a base64 coded representation of key for future 
+        psudonymizations with same key or un-pseudonymization.
+        Key and IV set to the same, so future pseudonimizations
+        will give same result. 
+        """
+        self.key = SHA256.new(data=keyphrasestr.encode()).digest()
         self.iv = self.key
         return base64.encodebytes(s=self.key)
 
     def setkey(self, keystrbase64):
+        """
+        Set key from base64 encoded key, previously generated.
+        """
         self.key = base64.decodebytes(s=keystrbase64)
         self.iv = self.key
 
@@ -46,40 +59,20 @@ class FSEKryptoDingenot(object):
 
 class TestFSEKrypto(unittest.TestCase):
 
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
+    def test_key_is_generated(self):
+        k = FSEKryptoDingenot()
+        strk = k.genkey(keyphrasestr="Goddag mand økseskaft")
+        k1 = k.key
+        self.assertIsNotNone(k.key, "Key must be set")
 
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
-
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
-
+    def test_key_is_same_generated_or_set(self):
+        k = FSEKryptoDingenot()
+        strk = k.genkey(keyphrasestr="Goddag mand økseskaft")
+        k1 = k.key
+        k.setkey(keystrbase64=strk)
+        k2 = k.key
+        self.assertEqual(
+            k1, k2, "Key skal være det samme, genereret eller sat")
 
 if __name__ == "__main__":
     unittest.main()
-
-    pass_phrase = """
-    Da jeg gik ud over Langebro
-    en tidlig mandag morgen
-    da så jeg en der stod og græd.
-    Hvis du tør - så kom med mig.
-    """
-
-    k = FSEKryptoDingenot()
-
-    strk = k.genkey(keystr=pass_phrase)
-    # Gem strk, det er den læsevenlige nøgle. Pass frasen skal kun bruges en
-    # gang initielt. Jo længere jo bedre. strk er printbar udgave af selve nøglen der er
-    # afledt af pass frasen.
-    k1 = k.key
-    assert (k.key is not None), "Key must be set"
-    k.setkey(keystrbase64=strk)
-    k2 = k.key
-    if k1 == k2:
-        print('xxx')
