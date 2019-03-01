@@ -15,10 +15,10 @@ ja og alting drejer rundt. """
 
 k = fp.FSEKryptoDingenot()
 string_key = k.genkey(keyphrasestr=pass_phrase)
-# Gem string_key, det er den læsevenlige nøgle. 
-k1 = k.key
-assert (k.key is not None), "Key must be set"
-k.setkey(keystrbase64=strk)
-k2 = k.key
-if k1 == k2:
-    print('xxx')
+print(f'Gem denne key: {string_key}')
+
+pseudo_data = k.encrypt(raw=bytearray(
+    'Hemmelige data æøå # € ¤ z', encoding='UTF8'))
+klartekst_data = k.decrypt(enc = pseudo_data)
+
+x = 7

@@ -41,4 +41,4 @@ tilfældig som muligt. I praksis er det en god ide at bruge relativt lange tekst
 og bruge hash-værdien som nøgle. Det kan overvejes om man bare skal gemme selve nøglen og 
 glemme den den lange tekst (som har gjort sin gavn).
 
-IV Skal nok loge overvejes.
+IV skal være ens for samme nøgle => deterministisk kryptering.
