@@ -21,4 +21,4 @@ pseudo_data = k.encrypt(raw=bytearray(
     'Hemmelige data æøå # € ¤ z', encoding='UTF8'))
 klartekst_data = k.decrypt(enc = pseudo_data)
 
-x = 7
+https://en.wikipedia.org/wiki/RC4
