@@ -6,7 +6,7 @@ import unittest
 from Crypto import Random
 from Crypto.Cipher import AES
 from Crypto.Hash import SHA256
-from Crypto.Cipher import RC4
+#from Crypto.Cipher import RC4
 # pip install pycryptodome
 
 
