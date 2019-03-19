@@ -7,6 +7,6 @@ class FseScramble(pyffx.String):
         super(FseScramble, self).__init__(ffx=key, length=length, alphabet=alphabet)
 
 
-e = FseScramble(key=b'02sxdfkkallxcffssdfg', length=6)
+e = FseScramble(key=b'02sxdssxxxxxxxxfkkallxcffssdfg', length=6)
 print(e.encrypt('abcde'))
 print(e.decrypt('acbacc'))
