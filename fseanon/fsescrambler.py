@@ -17,3 +17,11 @@ class FseScramble(pyffx.String):
 
 # Gendata. Krypter .fam. Omsorter. Følg https://www.biostars.org/p/103945/
 # 
+
+#k = ''.join(random.choice(string.punctuation + string.ascii_letters + string.digits) for _ in range(64))
+#
+#print("key: " + k)
+#
+# Initier scrambler
+#
+#e = fs.FseScramble(key=k.encode(), length=10)
