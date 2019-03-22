@@ -1,0 +1,23 @@
+{
+ "editor.formatOnSave": true,
+ "editor.formatOnSaveTimeout": 1000,
+ "editor.rulers": [120],
+ "extensions.ignoreRecommendations": true,
+ "files.autoSave": "afterDelay",
+ "git.autofetch": true,
+ "git.ignoreMissingGitWarning": true,
+ "python.formatting.autopep8Args": ["--max-line-length=121"],
+ "python.formatting.blackArgs": ["--max-line-length=121"],
+ "python.formatting.provider": "black",
+ "python.linting.enabled": true,
+ "python.linting.flake8Args": ["--max-line-length=120"],
+ "python.linting.flake8Enabled": true,
+ "python.linting.lintOnSave": true,
+ "python.linting.pylintArgs": ["--extension-pkg-whitelist=cx_Oracle", "--disable=C0103,W0703", "--max-line-length=120"],
+ "python.linting.pylintEnabled": false,
+ "python.linting.pylintUseMinimalCheckers": false,
+ "python.pythonPath": "C:\\Users\\xxx\\Anaconda3\\python.exe",
+ "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+ "window.zoomLevel": 0,
+ "workbench.startupEditor": "none"
+}
