@@ -1,12 +1,15 @@
 Tanker bag:
-Reversibel pseudonymisering af alfanumeriske nøglefelter. 
-Output printbart 
-Input tages som strøm af bytes. Dette gælder begge veje, 
-så hvis man kan antage en UTF8 kodning på input, så gælder dette også efter.
-Ligeså ASCII, eller for så vidt også et vilkårligt bitmønster. 
-Man skal gerne huske, hvilken encoding data kommer fra. 
-input(encoding_x) -> crypt -> kryptotekst(ascii/base64) -> dekrypt -> input(encoding_x).
-Reelt er dette nok ikke et problem, et sæt erfarne øjne kan formentlig hurtigt afgøre det. 
+Reversibel og deterministisk pseudonymisering af nøglefelter bestående af tekst. 
+Output skal gerne ikke være meget anderledes i længde og type.
+
+Involverede algoritmer og implementeringer skal være langtidsholdbare. Selv efter lang tid skal man kunne
+genidentificere data. 
+
+Anonymiseringen skal være unik for hvert projekt. Dette styres ved at der ved projektstart genereres en sikker 
+projekstspecifik nøgle af god kryptografisk kvalitet længde og randomness.
+
+
+
 
 Princippet er at anvende gængse algoritmer, så der kan genimplementeres 
 også langt ude i fremtiden. Ikke bare gængse algoritmer, men gerne nogle 
