@@ -8,6 +8,11 @@ Man skal gerne huske, hvilken encoding data kommer fra.
 input(encoding_x) -> crypt -> kryptotekst(ascii/base64) -> dekrypt -> input(encoding_x).
 Reelt er dette nok ikke et problem, et sæt erfarne øjne kan formentlig hurtigt afgøre det. 
 
+
+https://pypi.org/project/pyffx/
+
+https://en.wikipedia.org/wiki/Format-preserving_encryption
+
 Princippet er at anvende gængse algoritmer, så der kan genimplementeres 
 også langt ude i fremtiden. Ikke bare gængse algoritmer, men gerne nogle 
 med en del år på bagen og multiple robuste implementeringer. 
